@@ -292,12 +292,44 @@
   border: 1px solid var(--green);
   transform: rotate(45deg);
 }
+
+.edu-entry.current::before, .commit.current::before {
+  content: none;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: -9px;
+  top: 0;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--green);
+  background: rgba(0,255,65,0.72);
+  color: var(--green);
+  font-size: 10px;
+  line-height: 1;
+}
+.timeline-marker span {
+  color: var(--bg);
+}
+.timeline-marker.diamond {
+  transform: rotate(45deg);
+}
+.timeline-marker.diamond span {
+  transform: rotate(-45deg);
+}
+.timeline-marker.circle {
+  border-radius: 50%;
+}
   
   .edu-entry .tag{color:var(--green2);font-size:12px;}
   .edu-entry .meta{color:var(--dim);font-size:12px;margin:4px 0 8px;}
   .edu-entry .role{color:var(--white);font-size:14px;font-weight:600;}
   .edu-entry .note{margin:8px 0 0;color:var(--text);font-size:13px;max-width:600px;}
-  .edu-entry .badge{
+  .edu-entry .badge, .commit .badge{
     display:inline-block;
     margin-left:8px;
     font-size:10px;
@@ -342,7 +374,10 @@
     display:flex;align-items:center;gap:6px;
     margin-bottom:14px;color:var(--dim);font-size:12px;
   }
-  .dotr{width:8px;height:8px;border-radius:50%;background:#333;display:inline-block;}
+  .dotr{width:8px;height:8px;border-radius:50%;background:var(--green);display:inline-block;}
+  .proj.in-progress .dotr{background:#F2C744;}
+  .dotr.red{background:#FF3B3B;}
+  .proj.eventease .dotr{background:#00A832;}
   .proj h3{margin:0 0 10px;color:var(--white);font-size:15px;}
   .proj h3::before{content:'/ ';color:var(--green2);}
   .proj .line{color:var(--dim);font-size:12px;margin:0 0 4px;}
@@ -575,7 +610,8 @@
     <div class="prompt-label">lsg education.log</div>
     <h2>Education</h2>
 
-    <div class="edu-entry">
+    <div class="edu-entry current">
+      <span class="timeline-marker diamond" aria-hidden="true"><span>◆</span></span>
       <div class="tag">degree — in_progress</div>
       <div class="meta">2025 – Present</div>
       <div class="role">BSc Honours In Computing<span class="badge">CURRENT</span></div>
@@ -628,8 +664,8 @@
     <div class="prompt-label">built ./projects</div>
     <h2>Projects</h2>
     <div class="proj-grid">
-      <div class="proj">
-        <div class="proj-titlebar"><span class="dotr"></span><span class="dotr"></span><span class="dotr"></span>&nbsp;PTAWABPF — Website</div>
+      <div class="proj ptawab">
+        <div class="proj-titlebar"><span class="dotr"></span><span class="dotr"></span><span class="dotr red"></span>&nbsp;PTAWABPF — Website</div>
         <h3>PTAWAB Pastor's Forum</h3>
         <div class="line"><b>Problem:</b> The Forum Had No Digital Presence, Making It Hard For New Members And Visitors To Learn About The Organisation Or Get In Touch.</div>
         <div class="line"><b>Role:</b> Sole Developer — Designed And Built The Full Site.</div>
@@ -645,7 +681,7 @@
         </div>
       </div>
 
-      <div class="proj">
+      <div class="proj eventease">
         <div class="proj-titlebar"><span class="dotr"></span><span class="dotr"></span><span class="dotr"></span>&nbsp;EventEase — VBS</div>
         <h3>EventEase</h3>
         <div class="line"><b>Problem:</b> Needed A Cloud-Based Venue And Event Booking System With Full Product And Customer Management, As A Practical Demonstration Of Azure Cloud Services.</div>
@@ -680,7 +716,7 @@
         </div>
       </div>
 
-      <div class="proj">
+      <div class="proj in-progress">
         <div class="proj-titlebar"><span class="dotr"></span><span class="dotr"></span><span class="dotr"></span>&nbsp;dev-portfolio — Webp</div>
         <h3>Developer Portfolio</h3>
         <div class="line"><b>Problem:</b> Needed A Personal Portfolio That Stood Apart From Templated Developer Sites And Actually Reflected How i Work.</div>
@@ -702,10 +738,11 @@
     <div class="prompt-label">git log --oneline --graph</div>
     <h2>Experience</h2>
 
-    <div class="commit">
+    <div class="commit current">
+      <span class="timeline-marker circle" aria-hidden="true"><span>●</span></span>
       <div class="hash">commit 7a1b8n3t (HEAD -&gt; main)</div>
       <div class="meta">October 2026 – Present</div>
-      <div class="role">Software Development Intern - Innovative Knowledge Worx</div>
+      <div class="role">Software Development Intern - Innovative Knowledge Worx<span class="badge">CURRENT</span></div>
       <ul>
         <li>Contributing To The Development Of Mobile Applications Using React Native.</li>
         <li>Assisting With Backend Service Integrations, API Service Request Tracking, And Data Handling Using C#, ASP.NET Core, And MongoDB</li>
