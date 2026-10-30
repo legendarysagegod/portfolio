@@ -275,18 +275,24 @@
   }
 
   /* ============ EDUcatION (log file) ============ */
-  .edu-entry{
-    border-left:1px solid var(--line);
-    padding:2px 0 26px 22px;
-    position:relative;
-  }
-  .edu-entry::before{
-    content:'';
-    position:absolute;left:-5px;top:4px;
-    width:9px;height:9px;
-    background:var(--bg);border:1px solid var(--green);
-    transform:rotate(45deg);
-  }
+  .edu-entry {
+  border-left: 1px solid var(--line);
+  padding: 2px 0 26px 22px;
+  position: relative;
+}
+  
+.edu-entry::before {
+  content: '';
+  position: absolute;
+  left: -5px;
+  top: 4px;
+  width: 9px;
+  height: 9px;
+  background: var(--bg);
+  border: 1px solid var(--green);
+  transform: rotate(45deg);
+}
+  
   .edu-entry .tag{color:var(--green2);font-size:12px;}
   .edu-entry .meta{color:var(--dim);font-size:12px;margin:4px 0 8px;}
   .edu-entry .role{color:var(--white);font-size:14px;font-weight:600;}
@@ -300,6 +306,62 @@
     background:var(--green);
     padding:2px 6px;
   }
+
+  /* ============ EDUCATION MARKER (Filled Diamond for Current) ============ */
+.edu-entry {
+  border-left: 1px solid var(--line);
+  padding: 2px 0 26px 22px;
+  position: relative;
+}
+
+.edu-entry::before {
+  content: '';
+  position: absolute;
+  left: -5px;
+  top: 4px;
+  width: 9px;
+  height: 9px;
+  background: var(--bg);
+  border: 1px solid var(--green);
+  transform: rotate(45deg);
+}
+
+/* Target the active/current education entry */
+.edu-entry .badge {
+  /* This targets entries with the CURRENT badge */
+}
+
+/* If you want to target the first edu-entry (BSc Honours) automatically: */
+.edu-entry:first-child::before {
+  background: var(--green); /* Fills the diamond for your current degree */
+  box-shadow: 0 0 6px rgba(0, 255, 65, 0.6);
+}
+
+
+/* ============ EXPERIENCE MARKER (Filled Circle for Current Job) ============ */
+.commit {
+  border-left: 1px solid var(--line);
+  padding: 2px 0 26px 22px;
+  position: relative;
+}
+
+.commit::before {
+  content: '';
+  position: absolute;
+  left: -5px;
+  top: 4px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 1px solid var(--green);
+}
+
+/* Target the first commit (HEAD -> main / IKWorx Intern) to fill it */
+.commit:first-child::before {
+  background: var(--green); /* Fills the circle for your current role */
+  box-shadow: 0 0 6px rgba(0, 255, 65, 0.6);
+}
 
   .npm-head{color:var(--dim);font-size:13px;margin-bottom:6px;}
   .npm-list{list-style:none;margin:0;padding:0;font-size:14px;}
